@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package grpcdelivery;
+
+option go_package = "github.com/mehrdod/grpcsimple";
+
+service Fibonacci {
+   rpc Get(Range) returns (stream FibonacciNum) {}
+}
+message Range {
+   int32 from = 1;
+   int32 to = 2;
+}
+message FibonacciNum {
+   int64 value = 1;
+}

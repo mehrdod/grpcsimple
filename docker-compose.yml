@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  grpcsimple:
+    build: ./
+    ports:
+      - 8001:8000
+    depends_on:
+      - cache
+  cache:
+    restart: always
+    image: redis:6.2.4-buster
+    ports:
+      - 6380:6379
